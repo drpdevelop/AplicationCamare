@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar;
 public class result extends AppCompatActivity {
 
     TextView nombre, correo, numero, ubicacion;
-    String cel = "3023421647";
     ImageView img_result;
 
     FloatingActionButton call;
@@ -70,15 +69,15 @@ public class result extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                get_call(view);
+                get_call(view, num);
             }
         });
     }
 
 
-    public  void get_call(View view){
+    public  void get_call(View view, String num){
         Intent llamada = new Intent(Intent.ACTION_DIAL);
-        llamada.setData(Uri.parse("tel: "+cel));
+        llamada.setData(Uri.parse("tel: "+num));
 
 
         if(llamada.resolveActivity(getPackageManager()) != null){
